@@ -221,3 +221,19 @@
     padding: 1.25rem;
   }
 }
+
+@media (max-width: 480px) {
+  .layout-topbar {
+    padding: 0 1rem;
+    height: 58px;
+  }
+  .topbar-title {
+    font-size: 0.95rem;
+  }
+  .avatar-label {
+    display: none;
+  }
+  .layout-content {
+    padding: 1rem 0.75rem;
+  }
+}

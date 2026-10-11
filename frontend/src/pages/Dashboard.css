@@ -374,3 +374,38 @@
     align-items: flex-start;
   }
 }
+
+/* Additional Mobile and Tablet Responsive Refinements */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1.25rem 0.85rem;
+  }
+  .dashboard-title {
+    font-size: 1.6rem;
+  }
+  .dashboard-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .recent-section {
+    padding: 1rem;
+  }
+  .recent-table th, .recent-table td {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.825rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-notice-action {
+    width: 100%;
+    text-align: center;
+  }
+  .role-notice-card {
+    padding: 1rem;
+  }
+}
