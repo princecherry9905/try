@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { validateStudentForm } from '../utils/validation';
 import './AddStudent.css';
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://xstudent.onrender.com/api';
 
 export default function AddStudent() {
   const [formData, setFormData] = useState({

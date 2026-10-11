@@ -211,5 +211,6 @@ Tests finished: 10 passed, 0 failed
 
 ## 🌐 Deployment Links
 
-- **Backend API (Production)**: `[Deployment in progress - configured via Render / Railway]`
+- **Backend API (Production)**: [https://xstudent.onrender.com](https://xstudent.onrender.com)
+- **Backend Health Check**: [https://xstudent.onrender.com/api/health](https://xstudent.onrender.com/api/health)
 - **Frontend App (Production)**: `[Deployment in progress - configured via Vercel]`
