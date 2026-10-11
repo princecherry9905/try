@@ -48,12 +48,12 @@ export default function Navbar() {
         <div className={`navbar-collapse ${mobileMenuOpen ? 'show' : ''}`}>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a href="#features" className="nav-link" onClick={closeMobileMenu}>
+              <a href="/#features" className="nav-link" onClick={closeMobileMenu}>
                 Features
               </a>
             </li>
             <li className="nav-item">
-              <a href="#tech-stack" className="nav-link" onClick={closeMobileMenu}>
+              <a href="/#tech-stack" className="nav-link" onClick={closeMobileMenu}>
                 Tech Stack
               </a>
             </li>
