@@ -26,7 +26,6 @@ export default function AppLayout() {
     setSidebarOpen(false);
   };
 
-  // Keyboard accessibility: Close mobile sidebar with ESC key
   useEffect(() => {
     if (!sidebarOpen) return;
 
@@ -44,12 +43,10 @@ export default function AppLayout() {
 
   return (
     <div className="layout-root">
-      {/* Skip to Main Content Link for Keyboard Users */}
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
 
-      {/* Mobile Backdrop */}
       {sidebarOpen && (
         <div
           className="layout-backdrop"
@@ -58,7 +55,6 @@ export default function AppLayout() {
         />
       )}
 
-      {/* Sidebar Navigation */}
       <aside
         className={`layout-sidebar ${sidebarOpen ? 'open' : ''}`}
         aria-label="Main Navigation Sidebar"
@@ -118,7 +114,6 @@ export default function AppLayout() {
         </div>
       </aside>
 
-      {/* Main Wrapper */}
       <div className="layout-main-wrapper">
         <header className="layout-topbar" aria-label="Portal Header">
           <button

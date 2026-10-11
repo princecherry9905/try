@@ -27,7 +27,6 @@
   outline-offset: 3px;
 }
 
-/* Primary Button */
 .btn-cta-primary {
   background-color: #2563eb;
   color: #ffffff;
@@ -52,7 +51,6 @@
   vertical-align: middle;
 }
 
-/* Secondary Button */
 .btn-cta-secondary {
   background-color: transparent;
   color: #f8fafc;
@@ -71,7 +69,6 @@
   transform: translateY(0);
 }
 
-/* Responsive */
 @media (max-width: 540px) {
   .hero-cta-group {
     flex-direction: column;

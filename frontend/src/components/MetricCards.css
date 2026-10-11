@@ -54,7 +54,6 @@
   line-height: 1.4;
 }
 
-/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   .metric-card {
     transition: none;
@@ -64,7 +63,6 @@
   }
 }
 
-/* Responsive: 2 cols on tablet and mobile */
 @media (max-width: 900px) {
   .metric-cards-grid {
     grid-template-columns: repeat(2, 1fr);

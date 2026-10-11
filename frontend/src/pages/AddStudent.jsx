@@ -24,7 +24,6 @@ export default function AddStudent() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    // Clear specific field error as user types
     if (fieldErrors[name]) {
       setFieldErrors((prev) => {
         const next = { ...prev };
@@ -39,7 +38,6 @@ export default function AddStudent() {
     setErrorMessage('');
     setSuccessMessage('');
 
-    // Standardized client-side validation
     const { isValid, errors } = validateStudentForm(formData);
     if (!isValid) {
       setFieldErrors(errors);
@@ -72,7 +70,6 @@ export default function AddStudent() {
 
       const data = await res.json().catch(() => ({}));
 
-      // Server remains authoritative for duplicate checks and validation
       if (!res.ok) {
         if (data.message && data.message.includes('E11000')) {
           throw new Error('A student with this Student ID, Email, or Roll Number already exists.');

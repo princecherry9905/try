@@ -11,12 +11,10 @@ export default function StudentList() {
   const [error, setError] = useState(null);
   const [totalStudents, setTotalStudents] = useState(0);
 
-  // Search and filter states
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCourse, setSelectedCourse] = useState('ALL');
   const [selectedSemester, setSelectedSemester] = useState('ALL');
 
-  // Delete modal & notification state
   const [studentToDelete, setStudentToDelete] = useState(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [notification, setNotification] = useState(null);
@@ -94,7 +92,6 @@ export default function StudentList() {
       });
   };
 
-  // Derive courses and semesters dynamically from loaded data
   const availableCourses = useMemo(() => {
     const set = new Set();
     students.forEach((s) => {
@@ -115,7 +112,6 @@ export default function StudentList() {
     return Array.from(set).sort((a, b) => Number(a) - Number(b));
   }, [students]);
 
-  // Compute filtered students based on search term, course, and semester
   const filteredStudents = useMemo(() => {
     return students.filter((student) => {
       const term = searchTerm.trim().toLowerCase();
@@ -146,7 +142,6 @@ export default function StudentList() {
     setSelectedSemester('ALL');
   };
 
-  // Delete operations
   const handleRequestDelete = (student) => {
     setStudentToDelete(student);
   };
@@ -180,7 +175,6 @@ export default function StudentList() {
         throw new Error(errData.message || `Server returned error status ${res.status}`);
       }
 
-      // Successfully removed
       setStudents((prev) => prev.filter((s) => (s._id || s.studentId) !== targetId));
       setTotalStudents((prev) => Math.max(0, prev - 1));
       setStudentToDelete(null);
@@ -201,7 +195,6 @@ export default function StudentList() {
 
   return (
     <div className="student-list-container">
-      {/* Toast Notification Banner */}
       {notification && (
         <div
           className={`notification-banner notification-${notification.type}`}
@@ -236,7 +229,6 @@ export default function StudentList() {
         </Link>
       </div>
 
-      {/* Filter and Search Toolbar */}
       {!loading && !error && students.length > 0 && (
         <div className="filter-toolbar" aria-label="Student search and filter bar">
           <div className="search-input-group">
@@ -403,7 +395,6 @@ export default function StudentList() {
         </div>
       )}
 
-      {/* Accessible Confirmation Modal */}
       <DeleteModal
         isOpen={Boolean(studentToDelete)}
         title="Confirm Student Deletion"

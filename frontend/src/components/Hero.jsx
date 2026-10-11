@@ -4,7 +4,6 @@ export default function Hero({ children }) {
   return (
     <section className="hero-section" aria-label="Hero Banner">
       <div className="hero-container">
-        {/* Pill Badge with Sparkle Icon */}
         <div className="hero-badge">
           <svg
             className="bi bi-stars hero-badge-icon"
@@ -22,7 +21,6 @@ export default function Hero({ children }) {
           </span>
         </div>
 
-        {/* Two-Tone Headline */}
         <h1 className="hero-title">
           Next-Gen Student Administration{' '}
           <span className="hero-title-highlight">
@@ -30,14 +28,12 @@ export default function Hero({ children }) {
           </span>
         </h1>
 
-        {/* Descriptive Lead Text */}
         <p className="hero-description">
           Attendance, marks and notices for your whole college — in one place. Admins manage
           students and courses with ease, teachers record marks in seconds, and students always
           know where they stand.
         </p>
 
-        {/* Child CTA slots / actions */}
         {children && <div className="hero-actions">{children}</div>}
       </div>
     </section>

@@ -1,10 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
-/**
- * ProtectedRoute component that verifies authentication status via stored token.
- * Optionally validates user role against allowedRoles.
- * Redirects unauthenticated users to /login and unauthorized users to /dashboard.
- */
 export default function ProtectedRoute({ children, allowedRoles }) {
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
   const userStr = typeof window !== 'undefined' ? localStorage.getItem('user') : null;

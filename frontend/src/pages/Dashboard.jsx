@@ -61,7 +61,6 @@ export default function Dashboard() {
     };
   }, []);
 
-  // Compute metrics
   const totalCount = students.length;
   const courseSet = new Set();
   students.forEach((s) => {
@@ -69,12 +68,10 @@ export default function Dashboard() {
   });
   const totalCourses = courseSet.size;
 
-  // Recent students (latest 5)
   const recentStudents = students.slice(0, 5);
 
   return (
     <div className="dashboard-container">
-      {/* Welcome & Role Banner */}
       <div className="dashboard-header">
         <div>
           <h1 className="dashboard-title">
@@ -90,7 +87,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Role-Aware Notice */}
       <div className={`role-notice-card ${isAdmin ? 'notice-admin' : 'notice-student'}`}>
         <div className="notice-icon">{isAdmin ? '🛡️' : '🎓'}</div>
         <div className="notice-content">
@@ -108,7 +104,6 @@ export default function Dashboard() {
         )}
       </div>
 
-      {/* Metrics Summary Cards */}
       <div className="dashboard-metrics-grid">
         <div className="metric-card">
           <div className="metric-icon-wrap icon-blue">
@@ -163,7 +158,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Quick Action Navigation */}
       <div className="dashboard-actions-section">
         <h3 className="section-title">Quick Actions</h3>
         <div className="quick-actions-grid">
@@ -195,7 +189,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Recent Students Section */}
       <div className="recent-section">
         <div className="recent-header">
           <h3 className="section-title">Recent Students</h3>

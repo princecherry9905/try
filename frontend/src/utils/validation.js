@@ -1,7 +1,3 @@
-/**
- * Shared validation utilities for standardized form feedback
- */
-
 export function isValidEmail(email) {
   if (!email || typeof email !== 'string') return false;
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

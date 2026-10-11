@@ -1,14 +1,5 @@
 const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
-/**
- * Reusable native-fetch wrapper for API requests.
- * Automatically attaches Authorization header if token exists in localStorage,
- * handles JSON serialization/deserialization, and throws detailed errors on failure.
- *
- * @param {string} endpoint - API path relative to BASE_URL (e.g. '/students' or '/auth/login')
- * @param {RequestInit} [options={}] - Standard fetch options
- * @returns {Promise<any>} Parsed response data
- */
 export async function apiFetch(endpoint, options = {}) {
   const url = endpoint.startsWith('http')
     ? endpoint

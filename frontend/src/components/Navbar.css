@@ -17,7 +17,6 @@
   position: relative;
 }
 
-/* Brand */
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -41,7 +40,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Mobile Toggler */
 .navbar-toggler {
   display: none;
   background: transparent;
@@ -93,7 +91,6 @@
   transform: rotate(-45deg);
 }
 
-/* Collapse / Navigation items */
 .navbar-collapse {
   display: flex;
   align-items: center;
@@ -123,7 +120,6 @@
   color: #ffffff;
 }
 
-/* Actions / Buttons */
 .navbar-actions {
   display: flex;
   align-items: center;
@@ -168,7 +164,6 @@
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.5);
 }
 
-/* Responsive Breakpoint (Tablet & Mobile) */
 @media (max-width: 768px) {
   .navbar-toggler {
     display: block;

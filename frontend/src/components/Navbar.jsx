@@ -16,7 +16,6 @@ export default function Navbar() {
   return (
     <header className="navbar-header">
       <nav className="navbar-container" aria-label="Main Navigation">
-        {/* Brand logo with graduation cap icon */}
         <Link to="/" className="navbar-brand" onClick={closeMobileMenu}>
           <svg
             className="bi bi-mortarboard-fill navbar-logo-icon"
@@ -33,7 +32,6 @@ export default function Navbar() {
           <span className="navbar-brand-text">xSTUDENT</span>
         </Link>
 
-        {/* Mobile menu toggle button */}
         <button
           className="navbar-toggler"
           type="button"
@@ -44,7 +42,6 @@ export default function Navbar() {
           <span className={`toggler-icon ${mobileMenuOpen ? 'open' : ''}`} />
         </button>
 
-        {/* Navigation links & CTA action buttons */}
         <div className={`navbar-collapse ${mobileMenuOpen ? 'show' : ''}`}>
           <ul className="navbar-nav">
             <li className="nav-item">

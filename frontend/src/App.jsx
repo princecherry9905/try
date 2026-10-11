@@ -45,7 +45,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Authenticated Application with Shared AppLayout */}
         <Route element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
@@ -56,7 +55,6 @@ function App() {
           </Route>
         </Route>
 
-        {/* Catch-all 404 Route */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AuthProvider>

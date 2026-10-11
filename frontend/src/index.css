@@ -20,13 +20,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Accessible focus ring for keyboard navigation */
 :focus-visible {
   outline: 2px solid #38bdf8 !important;
   outline-offset: 2px !important;
 }
 
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -36,7 +34,6 @@ body {
   }
 }
 
-/* Visually hidden utility for screen readers */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -49,7 +46,6 @@ body {
   border: 0;
 }
 
-/* Skip link for keyboard users */
 .skip-link {
   position: absolute;
   top: -60px;

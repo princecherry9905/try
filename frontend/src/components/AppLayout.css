@@ -5,7 +5,6 @@
   color: #ffffff;
 }
 
-/* Sidebar */
 .layout-sidebar {
   width: 250px;
   background-color: #0B192C;
@@ -118,7 +117,6 @@
   color: #ffffff;
 }
 
-/* Main Content Wrapper */
 .layout-main-wrapper {
   flex: 1;
   margin-left: 250px;
@@ -175,7 +173,6 @@
   padding: 2rem;
 }
 
-/* Mobile Hamburger */
 .mobile-menu-btn {
   display: none;
   background: transparent;
@@ -196,7 +193,6 @@
   display: none;
 }
 
-/* Responsive */
 @media (max-width: 860px) {
   .layout-sidebar {
     transform: translateX(-100%);
