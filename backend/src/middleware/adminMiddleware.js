@@ -28,7 +28,7 @@ export const verifyAdmin = async (req, res, next) => {
     let decoded;
     try {
       decoded = jwt.verify(token, process.env.JWT_SECRET);
-    } catch (err) {
+    } catch {
       return res.status(401).json({
         message: "Invalid or expired token",
       });
@@ -52,7 +52,7 @@ export const verifyAdmin = async (req, res, next) => {
           req.user = user;
           return next();
         }
-      } catch (e) {}
+      } catch {}
     }
 
     return res.status(403).json({

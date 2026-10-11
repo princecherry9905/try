@@ -31,7 +31,7 @@ const getAllStudents = async (req, res) => {
       totalPages: Math.ceil(totalStudents / limit),
       students,
     });
-  } catch (err) {
+  } catch {
     res.status(500).json({
       message: "Server Error",
     });
@@ -59,7 +59,7 @@ const getStudentById = async (req, res) => {
     res.status(200).json({
       student,
     });
-  } catch (err) {
+  } catch {
     res.status(500).json({
       message: "Server Error",
     });
@@ -154,7 +154,7 @@ const updateStudent = async (req, res) => {
     }
 
     const updatedStudent = await Student.findByIdAndUpdate(id, updates, {
-      new: true,
+      returnDocument: "after",
       runValidators: true,
     });
 
@@ -202,7 +202,7 @@ const deleteStudent = async (req, res) => {
       message: "Student deleted successfully",
       student,
     });
-  } catch (err) {
+  } catch {
     res.status(500).json({
       message: "Server Error",
     });

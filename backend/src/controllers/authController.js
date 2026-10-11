@@ -37,7 +37,7 @@ const registerUser = async (req, res) => {
         role: user.role,
       },
     });
-  } catch (err) {
+  } catch {
     res.status(500).json({
       message: "Server Error",
     });
@@ -84,7 +84,7 @@ const loginUser = async (req, res) => {
         role: user.role,
       },
     });
-  } catch (err) {
+  } catch {
     res.status(500).json({
       message: "Server Error",
     });
