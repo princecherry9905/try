@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import './AppLayout.css';
 
@@ -26,21 +26,49 @@ export default function AppLayout() {
     setSidebarOpen(false);
   };
 
+  // Keyboard accessibility: Close mobile sidebar with ESC key
+  useEffect(() => {
+    if (!sidebarOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        closeSidebar();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [sidebarOpen]);
+
   return (
     <div className="layout-root">
+      {/* Skip to Main Content Link for Keyboard Users */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       {/* Mobile Backdrop */}
       {sidebarOpen && (
-        <div className="layout-backdrop" onClick={closeSidebar} aria-hidden="true" />
+        <div
+          className="layout-backdrop"
+          onClick={closeSidebar}
+          aria-hidden="true"
+        />
       )}
 
       {/* Sidebar Navigation */}
-      <aside className={`layout-sidebar ${sidebarOpen ? 'open' : ''}`}>
+      <aside
+        className={`layout-sidebar ${sidebarOpen ? 'open' : ''}`}
+        aria-label="Main Navigation Sidebar"
+      >
         <div className="sidebar-brand">
           <span className="sidebar-brand-name">xSTUDENT</span>
           <span className="sidebar-role-badge">{user.role || 'user'}</span>
         </div>
 
-        <nav className="sidebar-nav" aria-label="Sidebar Navigation">
+        <nav className="sidebar-nav" aria-label="Application Sections">
           <NavLink
             to="/dashboard"
             className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
@@ -79,7 +107,12 @@ export default function AppLayout() {
             <span className="user-name">{user.name || 'User'}</span>
             <span className="user-email">{user.email || 'user@college.edu'}</span>
           </div>
-          <button type="button" className="sidebar-logout-btn" onClick={handleLogout}>
+          <button
+            type="button"
+            className="sidebar-logout-btn"
+            onClick={handleLogout}
+            aria-label="Log out of application"
+          >
             Logout
           </button>
         </div>
@@ -87,12 +120,13 @@ export default function AppLayout() {
 
       {/* Main Wrapper */}
       <div className="layout-main-wrapper">
-        <header className="layout-topbar">
+        <header className="layout-topbar" aria-label="Portal Header">
           <button
             type="button"
             className="mobile-menu-btn"
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            aria-label="Toggle sidebar menu"
+            aria-label={sidebarOpen ? 'Close navigation sidebar' : 'Open navigation sidebar'}
+            aria-expanded={sidebarOpen}
           >
             <span className="hamburger-bar" />
             <span className="hamburger-bar" />
@@ -101,15 +135,15 @@ export default function AppLayout() {
 
           <div className="topbar-title">Student Management Portal</div>
 
-          <div className="topbar-user-badge">
-            <span className="avatar-circle">
+          <div className="topbar-user-badge" aria-label={`Logged in as ${user.name || 'User'}`}>
+            <span className="avatar-circle" aria-hidden="true">
               {(user.name || 'U').charAt(0).toUpperCase()}
             </span>
             <span className="avatar-label">{user.name || 'User'}</span>
           </div>
         </header>
 
-        <main className="layout-content">
+        <main id="main-content" className="layout-content" tabIndex="-1">
           <Outlet />
         </main>
       </div>
