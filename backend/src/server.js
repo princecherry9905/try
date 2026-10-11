@@ -16,11 +16,24 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
   process.env.CLIENT_URL,
-];
+].filter(Boolean);
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (
+        allowedOrigins.length === 0 ||
+        allowedOrigins.includes(origin) ||
+        process.env.NODE_ENV !== "production" ||
+        origin.endsWith(".vercel.app") ||
+        origin.endsWith(".onrender.com") ||
+        origin.endsWith(".netlify.app")
+      ) {
+        return callback(null, true);
+      }
+      callback(null, true);
+    },
     credentials: true,
   })
 );
