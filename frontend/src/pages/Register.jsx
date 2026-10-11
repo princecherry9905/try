@@ -9,6 +9,7 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [role, setRole] = useState('user');
   const [fieldErrors, setFieldErrors] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -48,7 +49,7 @@ export default function Register() {
     setFieldErrors({});
 
     try {
-      await register(name.trim(), email.trim(), password);
+      await register(name.trim(), email.trim(), password, role);
       setSuccessMessage('Registration successful! Redirecting to login...');
       setTimeout(() => {
         navigate('/login');
@@ -171,6 +172,24 @@ export default function Register() {
                   {fieldErrors.confirmPassword}
                 </span>
               )}
+            </div>
+
+            <div className="auth-field">
+              <label htmlFor="reg-role">Account Role</label>
+              <select
+                id="reg-role"
+                className="auth-input auth-select"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+              >
+                <option value="user">Student / General User</option>
+                <option value="admin">Administrator (Admin Access)</option>
+              </select>
+              <span className="auth-role-hint">
+                {role === 'admin'
+                  ? '👑 Admin privileges: Full permission to enroll, edit, and delete student records.'
+                  : '🎓 Student privileges: Access directory and view academic records.'}
+              </span>
             </div>
 
             <button type="submit" className="auth-btn-submit" disabled={loading}>
